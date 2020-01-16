@@ -1,0 +1,23 @@
+# Create dev Pedro Sidou
+POST http://localhost:3333/devs
+Content-Type: application/json
+
+{"github_username" : "pnsidou",
+"techs" : ["python", "reactjs", "nodejs", "c++", "elisp", "c", "javascript"],
+"longitude" : -31.00,
+"latitude" : -51.00}
+
+# Create dev Diego Fernandes
+POST http://localhost:3333/devs
+Content-Type: application/json
+
+{"github_username" : "diego3g",
+"techs" : ["python", "reactjs", "nodejs", "angular", "vue", "javascript"],
+"longitude" : -31.02,
+"latitude" : -51.01}
+
+# list developers
+GET http://localhost:3333/devs
+
+# search controller
+GET http://localhost:3333/search?longitude=-31&latitude=-51&techs=reactjs,python
