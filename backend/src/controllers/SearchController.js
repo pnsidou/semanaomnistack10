@@ -10,6 +10,7 @@ module.exports = {
         const { techs, latitude, longitude } = query;
         const techsArray = techs.split(',').map((tech) => tech.trim());
 
+        console.log('Tira teima:', techsArray, longitude, latitude)
         const devs = await Dev.find({
             techs: {
                 $in: techsArray,
@@ -20,7 +21,7 @@ module.exports = {
                         type: 'Point',
                         coordinates: [longitude, latitude]
                     },
-                    $maxDistance: 100000
+                    $maxDistance: 1000000
                 }
             }
         });

@@ -46,10 +46,12 @@ function Main({ navigation }) {
             }
         }).catch((err) => console.log(err));
 
-        console.log(res)
-        /*
+        console.log('Server response:')
+        console.log(res.data)
+
+        //*
         if (res.data) {
-            setDevs(res.data.devs);
+            setDevs(res.data);
         }
         //*/
     };
@@ -75,15 +77,21 @@ function Main({ navigation }) {
                         coordinate={{
                             longitude: dev.location.coordinates[0],
                             latitude: dev.location.coordinates[1]
-                        }} >
-                        <Image style={styles.avatar} source={{ uri: dev.avatar_url }}></Image>
-                        <Callout style={styles.callout} onPress={() => {
-                            navigation.navigate('Profile', { github_username: dev.github_username });
-                        }
-                        }>
-                            <Text style={styles.devName}>{dev.name}</Text>
-                            <Text style={styles.devBio}>{dev.bio}</Text>
-                            <Text style={styles.devTechs}>{dev.techs.join(',')}</Text>
+                        }}>
+                        <Image
+                            style={styles.avatar}
+                            source={{ uri: dev.avatar_url }}
+                        />                     
+                        <Callout
+                            style={styles.callout}
+                            onPress={() => {
+                                navigation.navigate('Profile', { github_username: dev.github_username });
+                            }}>
+                            <View>
+                                <Text style={styles.devName}>{dev.name}</Text>
+                                <Text style={styles.devBio}>{dev.bio}</Text>
+                                <Text style={styles.devTechs}>{dev.techs.join(', ')}</Text>
+                            </View>
                         </Callout>
                     </Marker>
                 ))}

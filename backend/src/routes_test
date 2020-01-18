@@ -20,4 +20,8 @@ Content-Type: application/json
 GET http://localhost:3333/devs
 
 # search controller
-GET http://localhost:3333/search?longitude=-30.05237883516629&latitude=-51.20915276929736&techs=reactjs,python
+GET http://localhost:3333/search?latitude=-30.05237883516629&longitude=-51.20915276929736&techs=python
+
+# search controller
+GET http://localhost:3333/search?latitude=-30.05237883516629&longitude=-51.20915276929736&techs=python,reactjs
+
